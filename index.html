@@ -1,0 +1,1991 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Total Service - Servicios integrales para tu hogar: aire acondicionado, electricidad, plomería, pintura y más. Técnicos certificados 24/7">
+    <meta name="keywords" content="servicios hogar, aire acondicionado, plomería, electricidad, pintura, reparaciones">
+    <title>Total Service | Un solo contacto, todas las soluciones</title>
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Total Service - Servicios Integrales">
+    <meta property="og:description" content="Un solo contacto para todos los servicios de tu hogar">
+    <meta property="og:type" content="website">
+    
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* ===== VARIABLES Y RESET ===== */
+        :root {
+            --primary: #2E86AB;
+            --secondary: #A23B72;
+            --neutral-bg: #F8F9FA;
+            --neutral-text: #495057;
+            --dark: #212529;
+            --light: #ffffff;
+            --success: #28a745;
+            --warning: #ffc107;
+            --gradient: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            --shadow-sm: 0 2px 4px rgba(0,0,0,0.1);
+            --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
+            --shadow-lg: 0 10px 25px rgba(0,0,0,0.15);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: var(--neutral-text);
+            background: var(--neutral-bg);
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* ===== UTILITY CLASSES ===== */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 32px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: var(--transition);
+            text-align: center;
+        }
+
+        .btn-primary {
+            background: var(--gradient);
+            color: var(--light);
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-secondary {
+            background: var(--light);
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary);
+            color: var(--light);
+        }
+
+        .btn-emergency {
+            background: var(--warning);
+            color: var(--dark);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: clamp(28px, 5vw, 42px);
+            color: var(--dark);
+            margin-bottom: 16px;
+        }
+
+        .section-title p {
+            font-size: 18px;
+            color: var(--neutral-text);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* ===== HEADER ===== */
+        header {
+            background: var(--light);
+            box-shadow: var(--shadow-sm);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo i {
+            color: var(--secondary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--neutral-text);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: var(--primary);
+            cursor: pointer;
+        }
+
+        /* ===== HERO SECTION ===== */
+        .hero {
+            background: var(--gradient);
+            color: var(--light);
+            padding: 100px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+            background-size: 30px 30px;
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: clamp(32px, 6vw, 56px);
+            margin-bottom: 20px;
+            font-weight: 800;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: clamp(18px, 3vw, 22px);
+            margin-bottom: 40px;
+            opacity: 0.95;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .hero-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .hero-feature {
+            text-align: center;
+        }
+
+        .hero-feature i {
+            font-size: 32px;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        /* ===== SERVICES SECTION ===== */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .service-card {
+            background: var(--light);
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .service-icon {
+            width: 70px;
+            height: 70px;
+            background: var(--gradient);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .service-icon i {
+            font-size: 32px;
+            color: var(--light);
+        }
+
+        .service-card h3 {
+            font-size: 24px;
+            color: var(--dark);
+            margin-bottom: 12px;
+        }
+
+        .service-card p {
+            color: var(--neutral-text);
+            margin-bottom: 20px;
+        }
+
+        .service-card ul {
+            list-style: none;
+            margin-bottom: 20px;
+        }
+
+        .service-card ul li {
+            padding: 8px 0;
+            color: var(--neutral-text);
+            font-size: 15px;
+        }
+
+        .service-card ul li i {
+            color: var(--success);
+            margin-right: 8px;
+        }
+
+        /* ===== BENEFITS SECTION ===== */
+        .benefits {
+            background: var(--light);
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+
+        .benefit-item {
+            text-align: center;
+        }
+
+        .benefit-icon {
+            width: 90px;
+            height: 90px;
+            background: var(--gradient);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            transition: var(--transition);
+        }
+
+        .benefit-item:hover .benefit-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .benefit-icon i {
+            font-size: 40px;
+            color: var(--light);
+        }
+
+        .benefit-item h3 {
+            font-size: 22px;
+            color: var(--dark);
+            margin-bottom: 12px;
+        }
+
+        .benefit-item p {
+            color: var(--neutral-text);
+        }
+
+        /* ===== GALLERY SECTION ===== */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+            aspect-ratio: 4/3;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.03);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.75);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            color: var(--light);
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .gallery-overlay h4 {
+            margin-top: 15px;
+            font-size: 20px;
+        }
+
+        /* ===== QUOTE CALCULATOR ===== */
+        .quote-calculator {
+            background: var(--gradient);
+            color: var(--light);
+            padding: 80px 0;
+        }
+
+        .calculator-form {
+            background: var(--light);
+            border-radius: 16px;
+            padding: 40px;
+            max-width: 900px;
+            margin: 0 auto;
+            color: var(--dark);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--dark);
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 14px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: var(--transition);
+            font-family: inherit;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(46, 134, 171, 0.1);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .urgency-selector {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .urgency-option {
+            padding: 20px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            text-align: center;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .urgency-option:hover {
+            border-color: var(--primary);
+        }
+
+        .urgency-option input {
+            display: none;
+        }
+
+        .urgency-option i {
+            font-size: 28px;
+            color: var(--primary);
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .urgency-option:has(input:checked) {
+            border-color: var(--primary);
+            background: rgba(46, 134, 171, 0.1);
+        }
+
+        .urgency-option strong {
+            display: block;
+            margin: 10px 0 5px;
+            font-size: 18px;
+        }
+
+        .urgency-option small {
+            color: var(--neutral-text);
+        }
+
+        .estimate-display {
+            background: var(--gradient);
+            color: var(--light);
+            padding: 30px;
+            border-radius: 12px;
+            text-align: center;
+            margin-top: 25px;
+        }
+
+        .estimate-display h3 {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        .estimate-display p {
+            opacity: 0.9;
+            font-size: 14px;
+        }
+
+        /* ===== TESTIMONIALS ===== */
+        .testimonials {
+            background: var(--neutral-bg);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .testimonial-card {
+            background: var(--light);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: var(--shadow-md);
+        }
+
+        .testimonial-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .testimonial-avatar {
+            width: 60px;
+            height: 60px;
+            background: var(--gradient);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--light);
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .testimonial-info h4 {
+            color: var(--dark);
+            margin-bottom: 5px;
+        }
+
+        .stars {
+            color: var(--warning);
+        }
+
+        .testimonial-text {
+            color: var(--neutral-text);
+            font-style: italic;
+            line-height: 1.7;
+        }
+
+        /* ===== COVERAGE SECTION ===== */
+        .coverage {
+            background: var(--light);
+        }
+
+        .coverage-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .coverage-map {
+            background: var(--gradient);
+            border-radius: 12px;
+            padding: 40px;
+            text-align: center;
+            color: var(--light);
+            min-height: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .coverage-map i {
+            font-size: 80px;
+            margin-bottom: 20px;
+        }
+
+        .coverage-list h3 {
+            color: var(--dark);
+            margin-bottom: 20px;
+        }
+
+        .zones {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .zone-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px;
+            background: var(--neutral-bg);
+            border-radius: 8px;
+        }
+
+        .zone-item i {
+            color: var(--success);
+        }
+
+        /* ===== FAQ SECTION ===== */
+        .faq {
+            background: var(--neutral-bg);
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: var(--light);
+            margin-bottom: 15px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .faq-question {
+            padding: 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            color: var(--dark);
+            transition: var(--transition);
+        }
+
+        .faq-question:hover {
+            background: var(--neutral-bg);
+        }
+
+        .faq-question i {
+            color: var(--primary);
+            transition: var(--transition);
+        }
+
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+        }
+
+        .faq-answer-content {
+            padding: 0 20px 20px;
+            color: var(--neutral-text);
+            line-height: 1.7;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: var(--dark);
+            color: var(--light);
+            padding: 60px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 20px;
+            color: var(--light);
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            padding: 8px 0;
+        }
+
+        .footer-section a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-section a:hover {
+            color: var(--light);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            width: 45px;
+            height: 45px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: rgba(255,255,255,0.6);
+        }
+
+        /* ===== WHATSAPP BUTTON ===== */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--shadow-lg);
+            cursor: pointer;
+            z-index: 999;
+            transition: var(--transition);
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.15);
+        }
+
+        .whatsapp-float i {
+            font-size: 32px;
+            color: var(--light);
+        }
+
+        /* ===== MODAL ===== */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: var(--light);
+            border-radius: 16px;
+            max-width: 700px;
+            max-height: 90vh;
+            overflow-y: auto;
+            padding: 40px;
+            position: relative;
+            animation: modalSlideIn 0.3s ease;
+        }
+
+        @keyframes modalSlideIn {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            font-size: 28px;
+            cursor: pointer;
+            color: var(--neutral-text);
+            transition: var(--transition);
+        }
+
+        .modal-close:hover {
+            color: var(--dark);
+            transform: rotate(90deg);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background: var(--light);
+                flex-direction: column;
+                padding: 40px;
+                gap: 20px;
+                transition: var(--transition);
+                box-shadow: var(--shadow-lg);
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .hero {
+                padding: 60px 0;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .calculator-form {
+                padding: 25px;
+            }
+
+            .coverage-content {
+                grid-template-columns: 1fr;
+            }
+
+            .zones {
+                grid-template-columns: 1fr;
+            }
+
+            .whatsapp-float {
+                width: 55px;
+                height: 55px;
+                bottom: 20px;
+                right: 20px;
+            }
+
+            .whatsapp-float i {
+                font-size: 28px;
+            }
+
+            .section {
+                padding: 60px 0;
+            }
+        }
+
+        /* ===== LOADING ANIMATION ===== */
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255,255,255,0.3);
+            border-radius: 50%;
+            border-top-color: var(--light);
+            animation: spin 1s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* ===== SUCCESS MESSAGE ===== */
+        .success-message {
+            position: fixed;
+            top: 100px;
+            right: 30px;
+            background: var(--success);
+            color: var(--light);
+            padding: 20px 30px;
+            border-radius: 8px;
+            box-shadow: var(--shadow-lg);
+            z-index: 9999;
+            animation: slideInRight 0.3s ease;
+        }
+
+        @keyframes slideInRight {
+            from {
+                transform: translateX(400px);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header>
+        <nav class="container">
+            <a href="#" class="logo">
+                <i class="fas fa-home"></i> Total Service
+            </a>
+            <button class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#beneficios">Beneficios</a></li>
+                <li><a href="#galeria">Trabajos</a></li>
+                <li><a href="#testimonios">Testimonios</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+                <li><a href="tel:+543511234567" class="btn btn-emergency"><i class="fas fa-phone-volume"></i> Emergencia 24/7</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Especialistas en Todo para tu Hogar</h1>
+                <p>Aire acondicionado, electricidad, plomería, pintura y más. Un solo contacto, solución completa.</p>
+                <div class="hero-buttons">
+                    <a href="#contacto" class="btn btn-primary"><i class="fas fa-file-invoice"></i> Solicitar Presupuesto Gratis</a>
+                    <a href="tel:+543511234567" class="btn btn-secondary">
+                        <i class="fas fa-phone"></i> Llamar Ahora
+                    </a>
+                </div>
+                <div class="hero-features">
+                    <div class="hero-feature">
+                        <i class="fas fa-certificate"></i>
+                        <p><strong>Técnicos Certificados</strong></p>
+                    </div>
+                    <div class="hero-feature">
+                        <i class="fas fa-clock"></i>
+                        <p><strong>Atención 24/7</strong></p>
+                    </div>
+                    <div class="hero-feature">
+                        <i class="fas fa-shield-alt"></i>
+                        <p><strong>Garantía Total</strong></p>
+                    </div>
+                    <div class="hero-feature">
+                        <i class="fas fa-bolt"></i>
+                        <p><strong>Respuesta en 2hs</strong></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES SECTION -->
+    <section class="section" id="servicios">
+        <div class="container">
+            <div class="section-title">
+                <h2>Nuestros Servicios</h2>
+                <p>Soluciones profesionales para cada necesidad de tu hogar</p>
+            </div>
+            <div class="services-grid">
+                <!-- Aire Acondicionado -->
+                <div class="service-card" data-service="aire">
+                    <div class="service-icon">
+                        <i class="fas fa-snowflake"></i>
+                    </div>
+                    <h3>Aire Acondicionado</h3>
+                    <p>Instalación, mantenimiento y reparación de equipos</p>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> Instalación nuevos equipos</li>
+                        <li><i class="fas fa-check-circle"></i> Mantenimiento preventivo</li>
+                        <li><i class="fas fa-check-circle"></i> Reparación de fallas</li>
+                        <li><i class="fas fa-check-circle"></i> Limpieza profesional</li>
+                    </ul>
+                    <button class="btn btn-secondary" onclick="openModal('aire')">Ver más detalles</button>
+                </div>
+
+                <!-- Pintura -->
+                <div class="service-card" data-service="pintura">
+                    <div class="service-icon">
+                        <i class="fas fa-paint-roller"></i>
+                    </div>
+                    <h3>Pintura y Terminaciones</h3>
+                    <p>Transformamos espacios con acabados perfectos</p>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> Pintura interior/exterior</li>
+                        <li><i class="fas fa-check-circle"></i> Preparación de superficies</li>
+                        <li><i class="fas fa-check-circle"></i> Texturas y efectos</li>
+                        <li><i class="fas fa-check-circle"></i> Pintura en altura</li>
+                    </ul>
+                    <button class="btn btn-secondary" onclick="openModal('pintura')">Ver más detalles</button>
+                </div>
+
+                <!-- Electricidad -->
+                <div class="service-card" data-service="electricidad">
+                    <div class="service-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>Electricidad e Iluminación</h3>
+                    <p>Instalaciones seguras y eficientes</p>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> Instalaciones eléctricas</li>
+                        <li><i class="fas fa-check-circle"></i> Reparación de circuitos</li>
+                        <li><i class="fas fa-check-circle"></i> Instalación de luminarias</li>
+                        <li><i class="fas fa-check-circle"></i> Tableros eléctricos</li>
+                    </ul>
+                    <button class="btn btn-secondary" onclick="openModal('electricidad')">Ver más detalles</button>
+                </div>
+
+                <!-- Plomería -->
+                <div class="service-card" data-service="plomeria">
+                    <div class="service-icon">
+                        <i class="fas fa-wrench"></i>
+                    </div>
+                    <h3>Plomería y Gas</h3>
+                    <p>Soluciones rápidas y duraderas</p>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> Reparación de fugas</li>
+                        <li><i class="fas fa-check-circle"></i> Instalación de sanitarios</li>
+                        <li><i class="fas fa-check-circle"></i> Trabajos con gas natural</li>
+                        <li><i class="fas fa-check-circle"></i> Desatascos</li>
+                    </ul>
+                    <button class="btn btn-secondary" onclick="openModal('plomeria')">Ver más detalles</button>
+                </div>
+
+                <!-- Refrigeración -->
+                <div class="service-card" data-service="electrodomesticos">
+                    <div class="service-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3>Electrodomésticos</h3>
+                    <p>Reparación de heladeras, lavarropas y más</p>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> Reparación de heladeras</li>
+                        <li><i class="fas fa-check-circle"></i> Arreglo de lavarropas</li>
+                        <li><i class="fas fa-check-circle"></i> Mantenimiento de freezers</li>
+                        <li><i class="fas fa-check-circle"></i> Service completo</li>
+                    </ul>
+                    <button class="btn btn-secondary" onclick="openModal('electrodomesticos')">Ver más detalles</button>
+                </div>
+
+                <!-- Servicios Varios -->
+                <div class="service-card" data-service="varios">
+                    <div class="service-icon">
+                        <i class="fas fa-hammer"></i>
+                    </div>
+                    <h3>Servicios Varios</h3>
+                    <p>Soluciones rápidas para tu hogar</p>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> Albañilería menor</li>
+                        <li><i class="fas fa-check-circle"></i> Cerrajería básica</li>
+                        <li><i class="fas fa-check-circle"></i> Colocación de muebles</li>
+                        <li><i class="fas fa-check-circle"></i> Arreglos generales</li>
+                    </ul>
+                    <button class="btn btn-secondary" onclick="openModal('varios')">Ver más detalles</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BENEFITS SECTION -->
+    <section class="section benefits" id="beneficios">
+        <div class="container">
+            <div class="section-title">
+                <h2>¿Por Qué Elegirnos?</h2>
+                <p>Tu tranquilidad es nuestra prioridad</p>
+            </div>
+            <div class="benefits-grid">
+                <div class="benefit-item">
+                    <div class="benefit-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Un Solo Contacto</h3>
+                    <p>Todos los servicios del hogar en una sola empresa. Sin complicaciones.</p>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <h3>Técnicos Certificados</h3>
+                    <p>Profesionales capacitados y especializados en cada oficio.</p>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">
+                        <i class="fas fa-shield-check"></i>
+                    </div>
+                    <h3>Garantía Total</h3>
+                    <p>Respaldamos todos nuestros trabajos con garantía por escrito.</p>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h3>Respuesta Rápida</h3>
+                    <p>Atendemos tu emergencia en menos de 2 horas, los 7 días de la semana.</p>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">
+                        <i class="fas fa-dollar-sign"></i>
+                    </div>
+                    <h3>Precios Claros</h3>
+                    <p>Sin sorpresas. Presupuestos transparentes y detallados.</p>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3>Atención 24/7</h3>
+                    <p>Disponibles siempre que nos necesites, día y noche.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GALLERY SECTION -->
+    <section class="section" id="galeria">
+        <div class="container">
+            <div class="section-title">
+                <h2>Nuestros Trabajos</h2>
+                <p>La calidad que nos respalda</p>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-snowflake" style="font-size: 48px;"></i>
+                        <h4>Instalación A/C Split</h4>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-paint-roller" style="font-size: 48px;"></i>
+                        <h4>Pintura Interior Premium</h4>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-bolt" style="font-size: 48px;"></i>
+                        <h4>Instalación Eléctrica Completa</h4>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-wrench" style="font-size: 48px;"></i>
+                        <h4>Reparación Plomería</h4>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-tools" style="font-size: 48px;"></i>
+                        <h4>Service Heladera</h4>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-hammer" style="font-size: 48px;"></i>
+                        <h4>Trabajos de Albañilería</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS SECTION -->
+    <section class="section testimonials" id="testimonios">
+        <div class="container">
+            <div class="section-title">
+                <h2>Lo Que Dicen Nuestros Clientes</h2>
+                <p>Testimonios reales de clientes satisfechos</p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">MG</div>
+                        <div class="testimonial-info">
+                            <h4>María González</h4>
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="testimonial-text">"Excelente servicio de instalación de aire acondicionado. Llegaron puntual, trabajaron limpio y el precio fue justo. Muy recomendables."</p>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">JR</div>
+                        <div class="testimonial-info">
+                            <h4>Juan Rodríguez</h4>
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="testimonial-text">"Tuve una emergencia de plomería un domingo y vinieron en menos de 2 horas. Solucionaron todo rápido y profesionalmente. ¡Gracias!"</p>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">LP</div>
+                        <div class="testimonial-info">
+                            <h4>Laura Pérez</h4>
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="testimonial-text">"Pintaron toda mi casa. El trabajo quedó impecable. Son muy profesionales y atentos. La mejor experiencia con un servicio del hogar."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- COVERAGE SECTION -->
+    <section class="section coverage">
+        <div class="container">
+            <div class="section-title">
+                <h2>Zonas de Cobertura</h2>
+                <p>Llegamos a toda la ciudad y alrededores</p>
+            </div>
+            <div class="coverage-content">
+                <div class="coverage-map">
+                    <i class="fas fa-map-marked-alt"></i>
+                    <h3>Cobertura en Córdoba Capital</h3>
+                    <p>Atendemos toda la ciudad de Córdoba y zonas aledañas con tiempos de respuesta garantizados.</p>
+                </div>
+                <div class="coverage-list">
+                    <h3><i class="fas fa-location-dot"></i> Principales Barrios</h3>
+                    <div class="zones">
+                        <div class="zone-item">
+                            <i class="fas fa-check"></i>
+                            <span>Nueva Córdoba</span>
+                        </div>
+                        <div class="zone-item">
+                            <i class="fas fa-check"></i>
+                            <span>Centro</span>
+                        </div>
+                        <div class="zone-item">
+                            <i class="fas fa-check"></i>
+                            <span>Cerro de las Rosas</span>
+                        </div>
+                        <div class="zone-item">
+                            <i class="fas fa-check"></i>
+                            <span>Güemes</span>
+                        </div>
+                        <div class="zone-item">
+                            <i class="fas fa-check"></i>
+                            <span>Alto Alberdi</span>
+                        </div>
+                        <div class="zone-item">
+                            <i class="fas fa-check"></i>
+                            <span>Arguello</span>
+                        </div>
+                        <div class="zone-item">
+                            <i class="fas fa-check"></i>
+                            <span>Villa Belgrano</span>
+                        </div>
+                        <div class="zone-item">
+                            <i class="fas fa-check"></i>
+                            <span>Todas las zonas</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ SECTION -->
+    <section class="section faq">
+        <div class="container">
+            <div class="section-title">
+                <h2>Preguntas Frecuentes</h2>
+                <p>Resolvemos tus dudas más comunes</p>
+            </div>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>¿Cuánto tiempo tardan en responder una urgencia?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Nuestro compromiso es atender emergencias en menos de 2 horas. Contamos con técnicos disponibles 24/7 para responder rápidamente a cualquier situación urgente en tu hogar.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>¿Los presupuestos tienen costo?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            No, todos nuestros presupuestos son completamente gratuitos y sin compromiso. Visitamos tu hogar, evaluamos el trabajo necesario y te entregamos un presupuesto detallado sin cargo alguno.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>¿Qué garantía ofrecen en los trabajos?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Todos nuestros servicios cuentan con garantía por escrito. El tiempo de garantía varía según el tipo de trabajo: instalaciones eléctricas y gas 12 meses, reparaciones 6 meses, y pintura 12 meses.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>¿Están matriculados para trabajos de gas y electricidad?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Sí, todos nuestros técnicos están debidamente certificados y matriculados. Contamos con gasistas matriculados y electricistas certificados que cumplen con todas las normativas vigentes.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>¿Puedo contratar varios servicios al mismo tiempo?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            ¡Por supuesto! Esa es nuestra ventaja principal. Podemos coordinar múltiples servicios simultáneamente, ahorrándote tiempo y dinero. Además, ofrecemos descuentos especiales por servicios combinados.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- QUOTE CALCULATOR -->
+    <section class="quote-calculator" id="contacto">
+        <div class="container">
+            <div class="section-title">
+                <h2 style="color: white;">Solicita tu Presupuesto</h2>
+                <p style="color: rgba(255,255,255,0.9);">Cotización gratuita sin compromiso</p>
+            </div>
+            <div class="calculator-form">
+                <form id="quoteForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="serviceSelect"><i class="fas fa-briefcase"></i> Servicio Requerido *</label>
+                            <select id="serviceSelect" required>
+                                <option value="">Selecciona un servicio</option>
+                                <optgroup label="🌬️ Climatización">
+                                    <option value="aire-instalacion">Aire Acondicionado - Instalación</option>
+                                    <option value="aire-mantenimiento">Aire Acondicionado - Mantenimiento</option>
+                                    <option value="aire-reparacion">Aire Acondicionado - Reparación</option>
+                                </optgroup>
+                                <optgroup label="⚡ Instalaciones">
+                                    <option value="electricidad">Electricidad</option>
+                                    <option value="plomeria">Plomería</option>
+                                    <option value="gas">Gas Natural</option>
+                                </optgroup>
+                                <optgroup label="🎨 Terminaciones">
+                                    <option value="pintura-interior">Pintura Interior</option>
+                                    <option value="pintura-exterior">Pintura Exterior</option>
+                                    <option value="albanileria">Albañilería</option>
+                                </optgroup>
+                                <optgroup label="🔧 Electrodomésticos">
+                                    <option value="heladera">Reparación Heladera</option>
+                                    <option value="lavarropas">Reparación Lavarropas</option>
+                                    <option value="otros-electrodomesticos">Otros Electrodomésticos</option>
+                                </optgroup>
+                                <optgroup label="🛠️ Servicios Varios">
+                                    <option value="cerrajeria">Cerrajería</option>
+                                    <option value="varios">Arreglos Generales</option>
+                                </optgroup>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Urgencia del Servicio *</label>
+                            <div class="urgency-selector">
+                                <label class="urgency-option">
+                                    <input type="radio" name="urgency" value="normal" checked>
+                                    <div>
+                                        <i class="fas fa-calendar-alt"></i>
+                                        <strong>Normal</strong>
+                                        <small>24-48 horas</small>
+                                    </div>
+                                </label>
+                                <label class="urgency-option">
+                                    <input type="radio" name="urgency" value="urgente">
+                                    <div>
+                                        <i class="fas fa-bolt"></i>
+                                        <strong>Urgente</strong>
+                                        <small>2-4 horas</small>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name"><i class="fas fa-user"></i> Nombre Completo *</label>
+                            <input type="text" id="name" required placeholder="Juan Pérez">
+                        </div>
+                        <div class="form-group">
+                            <label for="phone"><i class="fas fa-phone"></i> Teléfono *</label>
+                            <input type="tel" id="phone" required placeholder="351 123 4567">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="email"><i class="fas fa-envelope"></i> Email</label>
+                            <input type="email" id="email" placeholder="tu@email.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="zone"><i class="fas fa-map-marker-alt"></i> Zona/Barrio *</label>
+                            <input type="text" id="zone" required placeholder="Ej: Nueva Córdoba">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="description"><i class="fas fa-comment"></i> Descripción del Trabajo</label>
+                        <textarea id="description" rows="4" placeholder="Describe brevemente lo que necesitas..."></textarea>
+                    </div>
+
+                    <div class="estimate-display" id="estimateDisplay" style="display: none;">
+                        <h3>💰 Estimación: <span id="estimateAmount">-</span></h3>
+                        <p>*Presupuesto aproximado. El precio final se confirma con la visita técnica gratuita.</p>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 20px; font-size: 18px;">
+                        <i class="fas fa-paper-plane"></i> Enviar Solicitud
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3><i class="fas fa-home"></i> Total Service</h3>
+                    <p>Un solo contacto, todas las soluciones para tu hogar.</p>
+                    <p style="margin-top: 15px;"><i class="fas fa-quote-left"></i> <em>Profesionales certificados al servicio de tu hogar desde 2018</em></p>
+                    <div class="social-links">
+                        <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Servicios</h3>
+                    <ul>
+                        <li><a href="#servicios"><i class="fas fa-snowflake"></i> Aire Acondicionado</a></li>
+                        <li><a href="#servicios"><i class="fas fa-bolt"></i> Electricidad</a></li>
+                        <li><a href="#servicios"><i class="fas fa-wrench"></i> Plomería y Gas</a></li>
+                        <li><a href="#servicios"><i class="fas fa-paint-roller"></i> Pintura</a></li>
+                        <li><a href="#servicios"><i class="fas fa-tools"></i> Electrodomésticos</a></li>
+                        <li><a href="#servicios"><i class="fas fa-hammer"></i> Servicios Varios</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Contacto</h3>
+                    <ul>
+                        <li><i class="fas fa-phone"></i> <a href="tel:+543511234567">351 123-4567</a></li>
+                        <li><i class="fas fa-phone-volume"></i> <a href="tel:+543511234568">351 123-4568 (Emergencias)</a></li>
+                        <li><i class="fas fa-envelope"></i> <a href="mailto:info@totalservice.com">info@totalservice.com</a></li>
+                        <li><i class="fas fa-map-marker-alt"></i> Córdoba Capital, Argentina</li>
+                        <li><i class="fab fa-whatsapp"></i> <a href="https://wa.me/5493511234567">WhatsApp</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Horarios</h3>
+                    <ul>
+                        <li><i class="fas fa-clock"></i> <strong>Lunes a Viernes:</strong><br>8:00 - 20:00</li>
+                        <li><i class="fas fa-clock"></i> <strong>Sábados:</strong><br>9:00 - 18:00</li>
+                        <li><i class="fas fa-clock"></i> <strong>Domingos:</strong><br>10:00 - 14:00</li>
+                        <li><i class="fas fa-exclamation-circle"></i> <strong>Emergencias:</strong><br>24/7 Todo el año</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 Total Service. Todos los derechos reservados.</p>
+                <p><i class="fas fa-certificate"></i> Técnicos certificados y matriculados | <i class="fas fa-shield-alt"></i> Garantía en todos los servicios</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WHATSAPP FLOAT BUTTON -->
+    <div class="whatsapp-float" onclick="openWhatsApp()" title="Contactar por WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </div>
+
+    <!-- MODAL -->
+    <div class="modal" id="serviceModal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal()">&times;</button>
+            <div id="modalBody"></div>
+        </div>
+    </div>
+
+    <script>
+        // ===== MENU TOGGLE =====
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            const icon = menuToggle.querySelector('i');
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-times');
+        });
+
+        // Close menu when clicking a link
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                menuToggle.querySelector('i').classList.add('fa-bars');
+                menuToggle.querySelector('i').classList.remove('fa-times');
+            });
+        });
+
+        // ===== QUOTE CALCULATOR =====
+        const serviceSelect = document.getElementById('serviceSelect');
+        const estimateDisplay = document.getElementById('estimateDisplay');
+        const estimateAmount = document.getElementById('estimateAmount');
+
+        // Price estimation logic
+        const servicePrices = {
+            'aire-instalacion': { normal: '$45.000 - $80.000', urgente: '$60.000 - $100.000' },
+            'aire-mantenimiento': { normal: '$8.000 - $15.000', urgente: '$12.000 - $20.000' },
+            'aire-reparacion': { normal: '$12.000 - $35.000', urgente: '$18.000 - $45.000' },
+            'electricidad': { normal: '$5.000 - $25.000', urgente: '$8.000 - $35.000' },
+            'plomeria': { normal: '$6.000 - $20.000', urgente: '$9.000 - $28.000' },
+            'gas': { normal: '$8.000 - $30.000', urgente: '$12.000 - $40.000' },
+            'pintura-interior': { normal: '$15.000 - $45.000', urgente: '$20.000 - $60.000' },
+            'pintura-exterior': { normal: '$20.000 - $60.000', urgente: '$28.000 - $75.000' },
+            'albanileria': { normal: '$10.000 - $40.000', urgente: '$15.000 - $50.000' },
+            'heladera': { normal: '$8.000 - $25.000', urgente: '$12.000 - $32.000' },
+            'lavarropas': { normal: '$7.000 - $22.000', urgente: '$10.000 - $28.000' },
+            'otros-electrodomesticos': { normal: '$6.000 - $20.000', urgente: '$9.000 - $26.000' },
+            'cerrajeria': { normal: '$5.000 - $18.000', urgente: '$8.000 - $25.000' },
+            'varios': { normal: '$4.000 - $15.000', urgente: '$6.000 - $20.000' }
+        };
+
+        function updateEstimate() {
+            const service = serviceSelect.value;
+            const urgency = document.querySelector('input[name="urgency"]:checked').value;
+
+            if (service && servicePrices[service]) {
+                estimateAmount.textContent = servicePrices[service][urgency];
+                estimateDisplay.style.display = 'block';
+            } else {
+                estimateDisplay.style.display = 'none';
+            }
+        }
+
+        serviceSelect.addEventListener('change', updateEstimate);
+        document.querySelectorAll('input[name="urgency"]').forEach(radio => {
+            radio.addEventListener('change', updateEstimate);
+        });
+
+        // ===== FORM SUBMISSION =====
+        const quoteForm = document.getElementById('quoteForm');
+
+        quoteForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const formData = {
+                service: serviceSelect.options[serviceSelect.selectedIndex].text,
+                urgency: document.querySelector('input[name="urgency"]:checked').value,
+                name: document.getElementById('name').value,
+                phone: document.getElementById('phone').value,
+                email: document.getElementById('email').value,
+                zone: document.getElementById('zone').value,
+                description: document.getElementById('description').value
+            };
+
+            const submitBtn = quoteForm.querySelector('button[type="submit"]');
+            const originalText = submitBtn.innerHTML;
+            submitBtn.innerHTML = '<span class="loading"></span> Enviando...';
+            submitBtn.disabled = true;
+
+            // Simulate form submission
+            setTimeout(() => {
+                // Show success message
+                showSuccessMessage(`¡Gracias ${formData.name}! Tu solicitud ha sido recibida. Nos comunicaremos contigo en breve al ${formData.phone}`);
+                
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+                quoteForm.reset();
+                estimateDisplay.style.display = 'none';
+            }, 1500);
+        });
+
+        // Success message function
+        function showSuccessMessage(message) {
+            const successDiv = document.createElement('div');
+            successDiv.className = 'success-message';
+            successDiv.innerHTML = `<i class="fas fa-check-circle"></i> ${message}`;
+            document.body.appendChild(successDiv);
+
+            setTimeout(() => {
+                successDiv.remove();
+            }, 5000);
+        }
+
+        // ===== MODAL SYSTEM =====
+        const serviceModal = document.getElementById('serviceModal');
+        const modalBody = document.getElementById('modalBody');
+
+        const serviceDetails = {
+            aire: {
+                title: 'Aire Acondicionado',
+                icon: 'fa-snowflake',
+                description: 'Servicios completos de climatización para tu hogar o negocio.',
+                services: [
+                    'Instalación de equipos split y compactos',
+                    'Mantenimiento preventivo completo',
+                    'Reparación de fallas y averías',
+                    'Limpieza profunda de unidades',
+                    'Carga de gas refrigerante',
+                    'Revisión de circuitos eléctricos',
+                    'Instalación de soportes y tuberías',
+                    'Asesoramiento en eficiencia energética'
+                ],
+                features: [
+                    'Técnicos matriculados',
+                    'Garantía de 12 meses',
+                    'Presupuesto sin cargo',
+                    'Atención de urgencias'
+                ]
+            },
+            pintura: {
+                title: 'Pintura y Terminaciones',
+                icon: 'fa-paint-roller',
+                description: 'Transformamos tus espacios con acabados profesionales.',
+                services: [
+                    'Pintura interior de ambientes',
+                    'Pintura de fachadas y exteriores',
+                    'Preparación y lijado de superficies',
+                    'Aplicación de texturas decorativas',
+                    'Pintura de techos y cielorrasos',
+                    'Trabajos en altura con equipos certificados',
+                    'Pintura de rejas y portones',
+                    'Asesoramiento en colores y tendencias'
+                ],
+                features: [
+                    'Pinturas de primera calidad',
+                    'Limpieza post-trabajo incluida',
+                    'Presupuesto detallado',
+                    'Garantía por escrito'
+                ]
+            },
+            electricidad: {
+                title: 'Electricidad e Iluminación',
+                icon: 'fa-bolt',
+                description: 'Instalaciones eléctricas seguras y eficientes.',
+                services: [
+                    'Instalación de tableros eléctricos',
+                    'Cableado y circuitos nuevos',
+                    'Reparación de cortocircuitos',
+                    'Instalación de luminarias LED',
+                    'Tomas corrientes y enchufes',
+                    'Sistemas de iluminación inteligente',
+                    'Puesta a tierra y protecciones',
+                    'Certificaciones eléctricas'
+                ],
+                features: [
+                    'Electricistas matriculados',
+                    'Materiales homologados',
+                    'Cumplimiento normativas',
+                    'Servicio de urgencia 24/7'
+                ]
+            },
+            plomeria: {
+                title: 'Plomería y Gas',
+                icon: 'fa-wrench',
+                description: 'Soluciones rápidas y profesionales para instalaciones sanitarias.',
+                services: [
+                    'Reparación de pérdidas de agua',
+                    'Instalación de sanitarios completos',
+                    'Trabajos con gas natural certificados',
+                    'Destapaciones de cañerías',
+                    'Instalación de calefones y termotanques',
+                    'Cambio de cañerías y caños',
+                    'Reparación de grifería',
+                    'Certificaciones de gas'
+                ],
+                features: [
+                    'Gasistas matriculados',
+                    'Certificado oficial',
+                    'Materiales de calidad',
+                    'Garantía total'
+                ]
+            },
+            electrodomesticos: {
+                title: 'Reparación de Electrodomésticos',
+                icon: 'fa-tools',
+                description: 'Service técnico especializado para tus electrodomésticos.',
+                services: [
+                    'Reparación de heladeras y freezers',
+                    'Service de lavarropas y secarropas',
+                    'Reparación de cocinas y hornos',
+                    'Mantenimiento de microondas',
+                    'Arreglo de lavavajillas',
+                    'Diagnóstico técnico sin cargo',
+                    'Repuestos originales',
+                    'Service a domicilio'
+                ],
+                features: [
+                    'Técnicos especializados',
+                    'Repuestos garantizados',
+                    'Presupuesto previo',
+                    'Servicio a domicilio'
+                ]
+            },
+            varios: {
+                title: 'Servicios Varios',
+                icon: 'fa-hammer',
+                description: 'Soluciones rápidas para múltiples necesidades del hogar.',
+                services: [
+                    'Pequeñas reparaciones de albañilería',
+                    'Apertura y cambio de cerraduras',
+                    'Colocación y armado de muebles',
+                    'Instalación de cortinas y persianas',
+                    'Reparaciones generales del hogar',
+                    'Mantenimiento preventivo',
+                    'Arreglos de urgencia',
+                    'Instalación de accesorios'
+                ],
+                features: [
+                    'Respuesta rápida',
+                    'Presupuestos accesibles',
+                    'Múltiples especialidades',
+                    'Atención personalizada'
+                ]
+            }
+        };
+
+        function openModal(service) {
+            const details = serviceDetails[service];
+            if (!details) return;
+
+            modalBody.innerHTML = `
+                <div style="text-align: center; margin-bottom: 30px;">
+                    <div style="width: 80px; height: 80px; background: var(--gradient); border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; margin-bottom: 20px;">
+                        <i class="fas ${details.icon}" style="font-size: 36px; color: white;"></i>
+                    </div>
+                    <h2 style="color: var(--dark); margin-bottom: 10px;">${details.title}</h2>
+                    <p style="color: var(--neutral-text); font-size: 16px;">${details.description}</p>
+                </div>
+
+                <div style="margin-bottom: 30px;">
+                    <h3 style="color: var(--dark); margin-bottom: 15px;"><i class="fas fa-list-check"></i> Servicios Incluidos</h3>
+                    <ul style="list-style: none; padding: 0;">
+                        ${details.services.map(s => `
+                            <li style="padding: 10px 0; border-bottom: 1px solid #e0e0e0;">
+                                <i class="fas fa-check-circle" style="color: var(--success); margin-right: 10px;"></i>
+                                ${s}
+                            </li>
+                        `).join('')}
+                    </ul>
+                </div>
+
+                <div style="background: var(--neutral-bg); padding: 20px; border-radius: 8px; margin-bottom: 30px;">
+                    <h3 style="color: var(--dark); margin-bottom: 15px;"><i class="fas fa-shield-check"></i> Nuestras Garantías</h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px;">
+                        ${details.features.map(f => `
+                            <div style="text-align: center; padding: 10px;">
+                                <i class="fas fa-certificate" style="color: var(--primary); font-size: 24px; margin-bottom: 8px; display: block;"></i>
+                                <p style="font-size: 14px; color: var(--neutral-text); font-weight: 600;">${f}</p>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+
+                <div style="text-align: center;">
+                    <a href="#contacto" class="btn btn-primary" onclick="closeModal()" style="margin-right: 10px;">
+                        <i class="fas fa-file-invoice"></i> Solicitar Presupuesto
+                    </a>
+                    <a href="tel:+543511234567" class="btn btn-secondary">
+                        <i class="fas fa-phone"></i> Llamar Ahora
+                    </a>
+                </div>
+            `;
+
+            serviceModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            serviceModal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal clicking outside
+        serviceModal.addEventListener('click', (e) => {
+            if (e.target === serviceModal) {
+                closeModal();
+            }
+        });
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && serviceModal.classList.contains('active')) {
+                closeModal();
+            }
+        });
+
+        // ===== FAQ ACCORDION =====
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const faqItem = question.parentElement;
+                const isActive = faqItem.classList.contains('active');
+                
+                // Close all FAQ items
+                document.querySelectorAll('.faq-item').forEach(item => {
+                    item.classList.remove('active');
+                });
+                
+                // Open clicked item if it wasn't active
+                if (!isActive) {
+                    faqItem.classList.add('active');
+                }
+            });
+        });
+
+        // ===== WHATSAPP BUTTON =====
+        function openWhatsApp() {
+            const phone = '5493511234567'; // Replace with actual WhatsApp number
+            const message = encodeURIComponent('¡Hola! Me gustaría solicitar información sobre sus servicios para el hogar.');
+            window.open(`https://wa.me/${phone}?text=${message}`, '_blank');
+        }
+
+        // ===== SMOOTH SCROLL =====
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href !== '#' && href !== '') {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        const headerOffset = 80;
+                        const elementPosition = target.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+            });
+        });
+
+        // ===== SCROLL ANIMATIONS =====
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Apply animations to elements
+        document.querySelectorAll('.service-card, .benefit-item, .gallery-item, .testimonial-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+
+        // ===== FORM VALIDATION =====
+        const phoneInput = document.getElementById('phone');
+        phoneInput.addEventListener('input', (e) => {
+            // Allow only numbers, spaces, hyphens and plus sign
+            e.target.value = e.target.value.replace(/[^0-9\s\-\+]/g, '');
+        });
+
+        const nameInput = document.getElementById('name');
+        nameInput.addEventListener('input', (e) => {
+            // Allow only letters and spaces
+            e.target.value = e.target.value.replace(/[^a-zA-ZáéíóúÁÉÍÓÚñÑ\s]/g, '');
+        });
+
+        // ===== STICKY HEADER EFFECT =====
+        let lastScroll = 0;
+        const header = document.querySelector('header');
+
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            
+            if (currentScroll > 100) {
+                header.style.boxShadow = '0 4px 12px rgba(0,0,0,0.15)';
+            } else {
+                header.style.boxShadow = 'var(--shadow-sm)';
+            }
+            
+            lastScroll = currentScroll;
+        });
+
+        // ===== CONSOLE INFO =====
+        console.log('%c🏠 Total Service', 'font-size: 24px; font-weight: bold; color: #2E86AB; text-shadow: 2px 2px 4px rgba(0,0,0,0.2);');
+        console.log('%c✨ Landing page completa y profesional', 'font-size: 14px; color: #A23B72; font-weight: bold;');
+        console.log('%c📱 Responsive | ⚡ Performance optimizado | 🎨 UI moderna', 'font-size: 12px; color: #495057;');
+        console.log('%c💻 Desarrollado con HTML5, CSS3 y JavaScript vanilla', 'font-size: 11px; color: #666;');
+        
+        // ===== PERFORMANCE TRACKING =====
+        window.addEventListener('load', () => {
+            const loadTime = performance.now();
+            console.log(`%c⏱️ Página cargada en ${Math.round(loadTime)}ms`, 'color: #28a745; font-weight: bold;');
+        });
+    </script>
+</body>
+</html>
