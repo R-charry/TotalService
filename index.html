@@ -130,62 +130,347 @@
             margin: 0 auto;
         }
 
-        /* ===== HEADER ===== */
-        header {
-            background: var(--light);
-            box-shadow: var(--shadow-sm);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
+       /* ===== HEADER ===== */
+header {
+    background: linear-gradient(135deg, var(--light) 0%, rgba(215, 199, 199, 0.95) 100%); /* Gradiente sutil para profesionalismo */
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1); /* Sombra más profunda */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 2px solid var(--primary); /* Borde más grueso para definición */
+    backdrop-filter: blur(10px); /* Efecto glassmorphism para modernidad */
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
 
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 0;
-        }
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 35px 0; /* Aumentado de 25px para más altura */
+    max-width: 1200px; /* Contenedor limitado para centrado */
+    margin: 0 auto;
+    padding-left: 20px;
+    padding-right: 20px;
+}
 
-        .logo {
-            font-size: 24px;
-            font-weight: 700;
-            color: var(--primary);
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
+.logo {
+    font-size: 32px; /* Aumentado de 28px */
+    font-weight: 800;
+    color: var(--primary);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Más espacio */
+    transition: var(--transition);
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.15); /* Sombra más pronunciada */
+}
 
-        .logo i {
-            color: var(--secondary);
-        }
+.logo:hover {
+    transform: scale(1.08); /* Escala más suave */
+    color: var(--secondary);
+}
 
-        .nav-links {
-            display: flex;
-            gap: 30px;
-            list-style: none;
-            align-items: center;
-        }
+.logo i {
+    color: var(--secondary);
+    font-size: 36px; /* Aumentado de 32px */
+    animation: bounce 2.5s infinite ease-in-out; /* Bounce más suave y largo */
+}
 
-        .nav-links a {
-            color: var(--neutral-text);
-            text-decoration: none;
-            font-weight: 500;
-            transition: var(--transition);
-        }
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); } /* Más movimiento */
+}
 
-        .nav-links a:hover {
-            color: var(--primary);
-        }
+.nav-links {
+    display: flex;
+    gap: 20px; /* Aumentado de 35px para más espacio */
+    list-style: none;
+    align-items: center;
+}
 
-        .menu-toggle {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 24px;
-            color: var(--primary);
-            cursor: pointer;
+.nav-links li a:not(.btn) {
+    color: var(--neutral-text);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 18px; /* Aumentado de 16px */
+    transition: var(--transition);
+    position: relative;
+    padding: 10px 2px; /* Más padding vertical */
+    border-radius: 6px; /* Bordes redondeados sutiles */
+}
+
+.nav-links li a:not(.btn)::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 4px; /* Más grueso */
+    background: var(--gradient);
+    transition: all 0.4s ease;
+    transform: translateX(-50%);
+}
+
+.nav-links li a:not(.btn):hover {
+    color: var(--primary);
+    background: rgba(0,102,204,0.05); /* Fondo sutil en hover */
+    transform: translateY(-2px); /* Elevación ligera */
+}
+
+.nav-links li a:not(.btn):hover::after {
+    width: 100%;
+}
+
+.nav-links .btn-emergency {
+    padding: 14px 28px; /* Aumentado de 12px 24px */
+    font-size: 16px; /* Aumentado de 15px */
+    font-weight: 700;
+    box-shadow: 0 6px 20px rgba(255, 193, 7, 0.5); /* Glow más intenso */
+    border-radius: 8px; /* Más redondeado */
+    transition: var(--transition);
+}
+
+.nav-links .btn-emergency:hover {
+    box-shadow: 0 8px 25px rgba(174, 92, 92, 0.7); /* Glow aún más */
+    transform: translateY(-3px); /* Elevación mayor */
+}
+
+.menu-toggle {
+    display: none;
+    background: var(--gradient);
+    border: none;
+    font-size: 28px; /* Aumentado de 26px */
+    color: var(--light);
+    cursor: pointer;
+    width: 55px; /* Aumentado de 50px */
+    height: 55px; /* Aumentado de 50px */
+    border-radius: 10px; /* Más redondeado */
+    transition: var(--transition);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2); /* Sombra más profunda */
+}
+
+.menu-toggle:hover {
+    transform: rotate(90deg) scale(1.1); /* Rotación y escala combinadas */
+    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+}
+
+/* ===== RESPONSIVE NAVBAR ===== */
+@media (max-width: 768px) {
+    nav {
+        padding: 25px 0; /* Ajustado para móvil */
+    }
+
+    .logo {
+        font-size: 28px; /* Ligeramente reducido para móvil */
+    }
+
+    .logo i {
+        font-size: 32px;
+    }
+
+    .nav-links {
+        position: fixed;
+        top: 90px; /* Ajustado por el padding mayor */
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 90px);
+        background: linear-gradient(180deg, var(--light) 0%, var(--neutral-bg) 100%);
+        flex-direction: column;
+        padding: 60px 30px; /* Más padding */
+        gap: 30px; /* Más espacio */
+        transition: left 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55); /* Transición más suave */
+        box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+        overflow-y: auto;
+        border-radius: 0 0 15px 15px; /* Bordes redondeados abajo */
+    }
+
+    .nav-links.active {
+        left: 0;
+    }
+
+    .nav-links li {
+        width: 100%;
+        text-align: center;
+        opacity: 0;
+        animation: fadeInUp 0.6s forwards; /* Animación más larga */
+    }
+
+    .nav-links.active li:nth-child(1) { animation-delay: 0.1s; }
+    .nav-links.active li:nth-child(2) { animation-delay: 0.2s; }
+    .nav-links.active li:nth-child(3) { animation-delay: 0.3s; }
+    .nav-links.active li:nth-child(4) { animation-delay: 0.4s; }
+    .nav-links.active li:nth-child(5) { animation-delay: 0.5s; }
+    .nav-links.active li:nth-child(6) { animation-delay: 0.6s; }
+
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(30px); /* Más movimiento */
         }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .nav-links li a:not(.btn) {
+        font-size: 22px; /* Aumentado de 20px */
+        padding: 18px 25px; /* Más padding */
+        display: block;
+        border-radius: 10px;
+        background: var(--light);
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .nav-links li a:not(.btn):hover {
+        background: var(--neutral-bg);
+        transform: translateX(15px); /* Más desplazamiento */
+        box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+    }
+
+    .nav-links li a:not(.btn)::after {
+        display: none;
+    }
+
+    .nav-links .btn-emergency {
+        width: 100%;
+        padding: 20px 35px; /* Aumentado */
+        font-size: 20px; /* Aumentado de 18px */
+        margin-top: 15px;
+    }
+
+    .menu-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+/* Tablets */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .nav-links {
+        gap: 30px; /* Ajustado para tablet */
+    }
+
+    .nav-links li a:not(.btn) {
+        font-size: 17px; /* Ligeramente reducido */
+    }
+
+    .logo {
+        font-size: 30px; /* Ajustado */
+    }
+
+    nav {
+        padding: 30px 0; /* Intermedio */
+    }
+}
+
+/* ===== RESPONSIVE NAVBAR ===== */
+@media (max-width: 768px) {
+    nav {
+        padding: 20px 0;
+    }
+
+    .logo {
+        font-size: 24px;
+    }
+
+    .logo i {
+        font-size: 28px;
+    }
+
+    .nav-links {
+        position: fixed;
+        top: 84px;
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 84px);
+        background: linear-gradient(180deg, var(--light) 0%, var(--neutral-bg) 100%);
+        flex-direction: column;
+        padding: 50px 30px;
+        gap: 25px;
+        transition: left 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        box-shadow: var(--shadow-lg);
+        overflow-y: auto;
+    }
+
+    .nav-links.active {
+        left: 0;
+    }
+
+    .nav-links li {
+        width: 100%;
+        text-align: center;
+        opacity: 0;
+        animation: fadeInUp 0.5s forwards;
+    }
+
+    .nav-links.active li:nth-child(1) { animation-delay: 0.1s; }
+    .nav-links.active li:nth-child(2) { animation-delay: 0.2s; }
+    .nav-links.active li:nth-child(3) { animation-delay: 0.3s; }
+    .nav-links.active li:nth-child(4) { animation-delay: 0.4s; }
+    .nav-links.active li:nth-child(5) { animation-delay: 0.5s; }
+    .nav-links.active li:nth-child(6) { animation-delay: 0.6s; }
+
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .nav-links li a:not(.btn) {
+        font-size: 20px;
+        padding: 15px 20px;
+        display: block;
+        border-radius: 8px;
+        background: var(--light);
+        box-shadow: var(--shadow-sm);
+    }
+
+    .nav-links li a:not(.btn):hover {
+        background: var(--neutral-bg);
+        transform: translateX(10px);
+    }
+
+    .nav-links li a:not(.btn)::after {
+        display: none;
+    }
+
+    .nav-links .btn-emergency {
+        width: 100%;
+        padding: 10px auto;
+        font-size: 18px;
+        
+    }
+    
+
+    .menu-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+/* Tablets */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .nav-links {
+        gap: 25px;
+    }
+
+    .nav-links li a:not(.btn) {
+        font-size: 15px;
+    }
+
+    .logo {
+        font-size: 26px;
+    }
+}
 
         /* ===== HERO SECTION ===== */
         .hero {
@@ -507,25 +792,6 @@
 
         .urgency-option small {
             color: var(--neutral-text);
-        }
-
-        .estimate-display {
-            background: var(--gradient);
-            color: var(--light);
-            padding: 30px;
-            border-radius: 12px;
-            text-align: center;
-            margin-top: 25px;
-        }
-
-        .estimate-display h3 {
-            font-size: 32px;
-            margin-bottom: 10px;
-        }
-
-        .estimate-display p {
-            opacity: 0.9;
-            font-size: 14px;
         }
 
         /* ===== TESTIMONIALS ===== */
@@ -942,6 +1208,21 @@
                 opacity: 1;
             }
         }
+        #hero {
+    scroll-margin-top: 100px;
+    
+    
+    /* Ajusta este valor según la altura real de tu header */
+}
+#servicios {
+    scroll-margin-top: 100px;
+}
+#caracteristicas {
+    scroll-margin-top: 100px;
+}
+#contacto {
+    scroll-margin-top: 100px;
+}
     </style>
 </head>
 <body>
@@ -1275,7 +1556,7 @@
         <div class="container">
             <div class="section-title">
                 <h2>Zonas de Cobertura</h2>
-                <p>Llegamos a toda la ciudad y alrededores</p>
+                <p>Llegamos a toda la ciudad de Córdoba</p>
             </div>
             <div class="coverage-content">
                 <div class="coverage-map">
@@ -1400,14 +1681,20 @@
         <div class="container">
             <div class="section-title">
                 <h2 style="color: white;">Solicita tu Presupuesto</h2>
-                <p style="color: rgba(255,255,255,0.9);">Cotización gratuita sin compromiso</p>
             </div>
             <div class="calculator-form">
-                <form id="quoteForm">
+                <form 
+                id="quoteForm" 
+                action="https://formsubmit.co/ajax/totalservicecordoba24.7@gmail.com" method="POST">
+                
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_subject" value="Nueva solicitud - Total Service">
+                <input type="hidden" name="_template" value="table">
+                
                     <div class="form-row">
                         <div class="form-group">
                             <label for="serviceSelect"><i class="fas fa-briefcase"></i> Servicio Requerido *</label>
-                            <select id="serviceSelect" required>
+                            <select id="serviceSelect" name="servicio" required>
                                 <option value="">Selecciona un servicio</option>
                                 <optgroup label="🌬️ Climatización">
                                     <option value="aire-instalacion">Aire Acondicionado - Instalación</option>
@@ -1435,60 +1722,37 @@
                                 </optgroup>
                             </select>
                         </div>
-                        <div class="form-group">
-                            <label>Urgencia del Servicio *</label>
-                            <div class="urgency-selector">
-                                <label class="urgency-option">
-                                    <input type="radio" name="urgency" value="normal" checked>
-                                    <div>
-                                        <i class="fas fa-calendar-alt"></i>
-                                        <strong>Normal</strong>
-                                        <small>24-48 horas</small>
-                                    </div>
-                                </label>
-                                <label class="urgency-option">
-                                    <input type="radio" name="urgency" value="urgente">
-                                    <div>
-                                        <i class="fas fa-bolt"></i>
-                                        <strong>Urgente</strong>
-                                        <small>2-4 horas</small>
-                                    </div>
-                                </label>
-                            </div>
-                        </div>
+                        
                     </div>
                     
                     <div class="form-row">
                         <div class="form-group">
                             <label for="name"><i class="fas fa-user"></i> Nombre Completo *</label>
-                            <input type="text" id="name" required placeholder="Juan Pérez">
+                            <input type="text" id="name" name="nombre" required placeholder="Juan Pérez">
                         </div>
                         <div class="form-group">
                             <label for="phone"><i class="fas fa-phone"></i> Teléfono *</label>
-                            <input type="tel" id="phone" required placeholder="351 123 4567">
+                            <input type="tel" id="phone" name="telefono" required placeholder="351 123 4567">
                         </div>
                     </div>
 
                     <div class="form-row">
                         <div class="form-group">
-                            <label for="email"><i class="fas fa-envelope"></i> Email</label>
-                            <input type="email" id="email" placeholder="tu@email.com">
+                            <label for="email"><i class="fas fa-envelope"></i> Email *</label>
+                            <input type="email" id="email" name="email" placeholder="tu@email.com" required>
                         </div>
                         <div class="form-group">
                             <label for="zone"><i class="fas fa-map-marker-alt"></i> Zona/Barrio *</label>
-                            <input type="text" id="zone" required placeholder="Ej: Nueva Córdoba">
+                            <input type="text" id="zone" name="zona" placeholder="Ej: Nueva Córdoba" required>
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label for="description"><i class="fas fa-comment"></i> Descripción del Trabajo</label>
-                        <textarea id="description" rows="4" placeholder="Describe brevemente lo que necesitas..."></textarea>
+                        <label for="description"><i class="fas fa-comment"></i> Descripción del Trabajo *</label>
+                        <textarea id="description" name="descripcion" rows="4" placeholder="Describe brevemente lo que necesitas..." required></textarea>
                     </div>
 
-                    <div class="estimate-display" id="estimateDisplay" style="display: none;">
-                        <h3>💰 Estimación: <span id="estimateAmount">-</span></h3>
-                        <p>*Presupuesto aproximado. El precio final se confirma con la visita técnica gratuita.</p>
-                    </div>
+                   
 
                     <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 20px; font-size: 18px;">
                         <i class="fas fa-paper-plane"></i> Enviar Solicitud
@@ -1503,14 +1767,13 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h3><i class="fas fa-home"></i> Total Service</h3>
+                    <h3><i class="fas fa-home"></i>Total Service</h3>
                     <p>Un solo contacto, todas las soluciones para tu hogar.</p>
-                    <p style="margin-top: 15px;"><i class="fas fa-quote-left"></i> <em>Profesionales certificados al servicio de tu hogar desde 2018</em></p>
+                    <p style="margin-top: 15px;"><i class="fas fa-quote-left"></i> <em>Profesionales certificados al servicio de tu hogar con años de experiencia en los distintos servicios.</em></p>
                     <div class="social-links">
                         <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
                         <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
-                        <a href="#" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-                        <a href="#" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://wa.me/5493512464629" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
                     </div>
                 </div>
 
@@ -1530,10 +1793,10 @@
                     <h3>Contacto</h3>
                     <ul>
                         <li><i class="fas fa-phone"></i> <a href="tel:+543512464629">351 246-4629</a></li>
-                        <li><i class="fas fa-phone-volume"></i> <a href="tel:+543511234568">351 246-4629 (Emergencias)</a></li>
-                        <li><i class="fas fa-envelope"></i> <a href="mailto:info@totalservice.com">info@totalservice.com</a></li>
+                        <li><i class="fas fa-phone-volume"></i> <a href="tel:+543512464629">351 246-4629 (Emergencias)</a></li>
+                        <li><i class="fas fa-envelope"></i> <a href="mailto:totalservicecordoba24.7@gmail.com">Enviar Email</a></li>
                         <li><i class="fas fa-map-marker-alt"></i> Córdoba Capital, Argentina</li>
-                        <li><i class="fab fa-whatsapp"></i> <a href="https://wa.me/5493511234567">WhatsApp</a></li>
+                        <li><i class="fab fa-whatsapp"></i> <a href="https://wa.me/5493512464629">WhatsApp</a></li>
                     </ul>
                 </div>
 
@@ -1570,99 +1833,107 @@
 
     <script>
         // ===== MENU TOGGLE =====
-        const menuToggle = document.getElementById('menuToggle');
-        const navLinks = document.getElementById('navLinks');
+const menuToggle = document.getElementById('menuToggle');
+const navLinks = document.getElementById('navLinks');
 
-        menuToggle.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-            const icon = menuToggle.querySelector('i');
-            icon.classList.toggle('fa-bars');
-            icon.classList.toggle('fa-times');
-        });
+menuToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+    const icon = menuToggle.querySelector('i');
+    
+    if (navLinks.classList.contains('active')) {
+        icon.classList.remove('fa-bars');
+        icon.classList.add('fa-times');
+        document.body.style.overflow = 'hidden';
+    } else {
+        icon.classList.remove('fa-times');
+        icon.classList.add('fa-bars');
+        document.body.style.overflow = 'auto';
+    }
+});
 
-        // Close menu when clicking a link
-        navLinks.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
-                menuToggle.querySelector('i').classList.add('fa-bars');
-                menuToggle.querySelector('i').classList.remove('fa-times');
-            });
-        });
+// Close menu when clicking a link
+navLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+        const icon = menuToggle.querySelector('i');
+        icon.classList.remove('fa-times');
+        icon.classList.add('fa-bars');
+        document.body.style.overflow = 'auto';
+    });
+});
 
-        // ===== QUOTE CALCULATOR =====
-        const serviceSelect = document.getElementById('serviceSelect');
-        const estimateDisplay = document.getElementById('estimateDisplay');
-        const estimateAmount = document.getElementById('estimateAmount');
+// Close menu when clicking outside
+document.addEventListener('click', (e) => {
+    if (!navLinks.contains(e.target) && !menuToggle.contains(e.target) && navLinks.classList.contains('active')) {
+        navLinks.classList.remove('active');
+        const icon = menuToggle.querySelector('i');
+        icon.classList.remove('fa-times');
+        icon.classList.add('fa-bars');
+        document.body.style.overflow = 'auto';
+    }
+});
 
-        // Price estimation logic
-        const servicePrices = {
-            'aire-instalacion': { normal: '$45.000 - $80.000', urgente: '$60.000 - $100.000' },
-            'aire-mantenimiento': { normal: '$8.000 - $15.000', urgente: '$12.000 - $20.000' },
-            'aire-reparacion': { normal: '$12.000 - $35.000', urgente: '$18.000 - $45.000' },
-            'electricidad': { normal: '$5.000 - $25.000', urgente: '$8.000 - $35.000' },
-            'plomeria': { normal: '$6.000 - $20.000', urgente: '$9.000 - $28.000' },
-            'gas': { normal: '$8.000 - $30.000', urgente: '$12.000 - $40.000' },
-            'pintura-interior': { normal: '$15.000 - $45.000', urgente: '$20.000 - $60.000' },
-            'pintura-exterior': { normal: '$20.000 - $60.000', urgente: '$28.000 - $75.000' },
-            'albanileria': { normal: '$10.000 - $40.000', urgente: '$15.000 - $50.000' },
-            'heladera': { normal: '$8.000 - $25.000', urgente: '$12.000 - $32.000' },
-            'lavarropas': { normal: '$7.000 - $22.000', urgente: '$10.000 - $28.000' },
-            'otros-electrodomesticos': { normal: '$6.000 - $20.000', urgente: '$9.000 - $26.000' },
-            'cerrajeria': { normal: '$5.000 - $18.000', urgente: '$8.000 - $25.000' },
-            'varios': { normal: '$4.000 - $15.000', urgente: '$6.000 - $20.000' }
-        };
-
-        function updateEstimate() {
-            const service = serviceSelect.value;
-            const urgency = document.querySelector('input[name="urgency"]:checked').value;
-
-            if (service && servicePrices[service]) {
-                estimateAmount.textContent = servicePrices[service][urgency];
-                estimateDisplay.style.display = 'block';
-            } else {
-                estimateDisplay.style.display = 'none';
-            }
-        }
-
-        serviceSelect.addEventListener('change', updateEstimate);
-        document.querySelectorAll('input[name="urgency"]').forEach(radio => {
-            radio.addEventListener('change', updateEstimate);
-        });
+       
 
         // ===== FORM SUBMISSION =====
-        const quoteForm = document.getElementById('quoteForm');
+        
 
-        quoteForm.addEventListener('submit', (e) => {
-            e.preventDefault();
+        // ===== FORM SUBMISSION (FormSubmit funcional) =====
+// El formulario se enviará automáticamente a FormSubmit
+// No necesitas preventDefault()
 
-            const formData = {
-                service: serviceSelect.options[serviceSelect.selectedIndex].text,
-                urgency: document.querySelector('input[name="urgency"]:checked').value,
-                name: document.getElementById('name').value,
-                phone: document.getElementById('phone').value,
-                email: document.getElementById('email').value,
-                zone: document.getElementById('zone').value,
-                description: document.getElementById('description').value
-            };
+    const quoteForm = document.getElementById('quoteForm');
 
-            const submitBtn = quoteForm.querySelector('button[type="submit"]');
-            const originalText = submitBtn.innerHTML;
-            submitBtn.innerHTML = '<span class="loading"></span> Enviando...';
-            submitBtn.disabled = true;
+quoteForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    
+    const formData = new FormData(quoteForm);
+    const submitBtn = quoteForm.querySelector('button[type="submit"]');
+    const originalText = submitBtn.innerHTML;
+    submitBtn.innerHTML = '<span class="loading"></span> Enviando...';
+    submitBtn.disabled = true;
 
-            // Simulate form submission
-            setTimeout(() => {
-                // Show success message
-                showSuccessMessage(`¡Gracias ${formData.name}! Tu solicitud ha sido recibida. Nos comunicaremos contigo en breve al ${formData.phone}`);
-                
-                submitBtn.innerHTML = originalText;
-                submitBtn.disabled = false;
-                quoteForm.reset();
-                estimateDisplay.style.display = 'none';
-            }, 1500);
-        });
+    fetch('https://formsubmit.co/ajax/totalservicecordoba24.7@gmail.com', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+        const name = document.getElementById('name').value;
+        const phone = document.getElementById('phone').value;
+        showSuccessMessage(`¡Gracias ${name}! Tu solicitud ha sido recibida. Nos comunicaremos contigo en breve al ${phone}`);
+        submitBtn.innerHTML = originalText;
+        submitBtn.disabled = false;
+        quoteForm.reset();
+    })
+    .catch(error => {
+        alert('Hubo un error al enviar el formulario. Por favor, intenta nuevamente.');
+        submitBtn.innerHTML = originalText;
+        submitBtn.disabled = false;
+    });
+});
 
-        // Success message function
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            const headerHeight = document.querySelector('header').offsetHeight; // Calcula altura dinámica
+            const offsetTop = target.offsetTop - headerHeight - 20; // -20px extra para margen
+            window.scrollTo({
+                top: offsetTop,
+                behavior: 'smooth'
+            });
+        }
+    });
+});
+    
+    // El formulario se enviará automáticamente a FormSubmit
+    // No necesitas preventDefault()
+
+    
+        
+        //Success message function
         function showSuccessMessage(message) {
             const successDiv = document.createElement('div');
             successDiv.className = 'success-message';
@@ -1673,6 +1944,13 @@
                 successDiv.remove();
             }, 5000);
         }
+
+
+
+
+
+
+
 
         // ===== MODAL SYSTEM =====
         const serviceModal = document.getElementById('serviceModal');
@@ -1790,7 +2068,6 @@
                 description: 'Soluciones rápidas para múltiples necesidades del hogar.',
                 services: [
                     'Pequeñas reparaciones de albañilería',
-                    'Apertura y cambio de cerraduras',
                     'Colocación y armado de muebles',
                     'Instalación de cortinas y persianas',
                     'Reparaciones generales del hogar',
@@ -1897,7 +2174,7 @@
 
         // ===== WHATSAPP BUTTON =====
         function openWhatsApp() {
-            const phone = '5493511234567'; // Replace with actual WhatsApp number
+            const phone = '5493512464629'; // Replace with actual WhatsApp number
             const message = encodeURIComponent('¡Hola! Me gustaría solicitar información sobre sus servicios para el hogar.');
             window.open(`https://wa.me/${phone}?text=${message}`, '_blank');
         }
